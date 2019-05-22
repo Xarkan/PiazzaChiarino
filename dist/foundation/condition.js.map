@@ -1,0 +1,1 @@
+{"version":3,"file":"condition.js","sourceRoot":"","sources":["../../src/foundation/condition.ts"],"names":[],"mappings":";;AACA,MAAa,SAAS;IAMrB,YAAY,QAAgB,EAAE,KAAU,EAAE,EAAE,GAAG,GAAG;QACjD,IAAI,CAAC,QAAQ,GAAG,QAAQ,CAAC;QACzB,IAAI,CAAC,KAAK,GAAG,KAAK,CAAC;QACnB,IAAI,CAAC,QAAQ,GAAG,EAAE,CAAC;IACpB,CAAC;CACD;AAXD,8BAWC"}

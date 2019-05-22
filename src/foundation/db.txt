@@ -1,0 +1,66 @@
+DROP DATABASE IF EXISTS PiazzaChiarino;
+CREATE DATABASE PiazzaChiarino;
+USE PiazzaChiarino;
+
+CREATE TABLE user (
+ id				int 			NOT NULL 	AUTO_INCREMENT,
+ mail			varchar(30)		NOT NULL,
+ password		varchar(40)		NOT NULL,
+ name			varchar(20)		NOT NULL,
+ date           DATETIME        NOT NULL,
+ description	varchar(100)	NOT NULL,
+ path_img       varchar(40)     NOT NULL,
+ name_img       varchar(40)     NOT NULL,
+ 
+ PRIMARY KEY (id) 
+
+);
+
+
+CREATE TABLE post (
+  id            int             NOT NULL    AUTO_INCREMENT,
+  author        int 	  	    NOT NULL,
+  date          datetime		NOT NULL,
+  latitude		float(7,5)		NOT NULL,
+  longitude		float(7,5)		NOT NULL,
+  text			varchar(200)	NOT NULL,
+  path_img      varchar(40)     NOT NULL,
+  name_img      varchar(40)     NOT NULL,
+  type			varchar(10)		NOT NULL,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (author) REFERENCES user (id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE comment (
+ id     		int 			NOT NULL	AUTO_INCREMENT,
+ post           int 			NOT NULL,
+ author			int 			NOT NULL,
+ body			varchar(200)	NOT NULL,
+ date           datetime		NOT NULL,
+
+ PRIMARY KEY (id, post),
+ FOREIGN KEY (post) REFERENCES post (id) ON DELETE CASCADE,
+ FOREIGN KEY (author) REFERENCES user (id) ON DELETE CASCADE
+
+);
+
+CREATE TABLE reaction (
+ id         	int 			NOT NULL 	AUTO_INCREMENT,
+ author 		int 			NOT NULL,
+ post       	int 			NOT NULL,
+ date           DATETIME        NOT NULL,
+
+ PRIMARY KEY (id, author, post),
+ FOREIGN KEY (author) REFERENCES user (id) ON DELETE CASCADE,
+ FOREIGN KEY (post) REFERENCES post (id) ON DELETE CASCADE
+
+);
+
+INSERT INTO user ( mail, password, name, date, description, path_img, name_img )
+ VALUES ('test@gmail.com', md5('password'), 'Test Ciccio', '2019-02-01 16:03:11', 'Carpe diem...', '//path', 'name.jpg' );
+
+
+INSERT INTO post ( author, date, latitude, longitude, text, path_img, name_img, type )
+ VALUES ( 1, '2019-02-01 18:33:11', 42.385, 13.2029, 'Sono una castagna','//path', 'name.jpg', 'fun' );

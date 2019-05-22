@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TestChiarino</title>
+</head>
+<body>
+
+<h1>New Post</h1>
+
+<form method="POST" action="http://127.0.0.1:3000/api/post">
+    type:<br>
+    <input type="text" name="type" required><br>
+    body:<br>
+    <input type="text" name="body" required><br>
+    latitude:<br>
+    <input type="number" name="latitude" step=0.001 required><br>
+    longitude:<br>
+    <input type="number" name="longitude" step=0.001 required><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html> 

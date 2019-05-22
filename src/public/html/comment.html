@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TestChiarino</title>
+</head>
+<body>
+
+<h1>New Comment</h1>
+
+<form method="POST" action="http://127.0.0.1:3000/api/comment">
+
+    body:<br>
+    <input type="text" name="body" required><br>
+    <input type="submit" value="Submit">
+</form>
+
+<h1>Delete Comment</h1>
+<p>
+    per cancellare è necessario modificare l'header e reinviare
+</p>
+<form method="DELETE" action="http://127.0.0.1:3000/api/comment">
+    id:<br>
+    <input type="text" name="body" required><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html> 
